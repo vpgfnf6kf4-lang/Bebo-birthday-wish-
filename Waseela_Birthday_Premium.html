@@ -185,7 +185,7 @@ audio{width:min(100%,500px)}
 
 <header class="hero">
     <div class="hero-content">
-        <img class="hero-photo" src="hero/hero.jpg" alt="Our special memory"
+        <img class="hero-photo" src="hero/hero.JPG" alt="Our special memory"
              onerror="this.style.display='none'">
         <h1>Happy Birthday Waseela! 🎂❤️</h1>
         <p>5 Years of Love</p>
@@ -278,18 +278,30 @@ passwordInput.focus();
 
 function loadGallery(id, folder, count){
     const gallery=document.getElementById(id);
+    const extensions=["jpg","JPG","jpeg","JPEG","png","PNG","webp","WEBP"];
+
     for(let i=1;i<=count;i++){
         const n=String(i).padStart(2,"0");
         const card=document.createElement("div");
         card.className="card";
         const img=document.createElement("img");
-        img.src=`${folder}/${n}.jpg`;
         img.alt="Memory";
         img.loading="lazy";
-        img.onerror=()=>card.remove();
+
+        let extIndex=0;
+        function tryNextExtension(){
+            if(extIndex >= extensions.length){
+                card.remove();
+                return;
+            }
+            img.src=`${folder}/${n}.${extensions[extIndex++]}`;
+        }
+
+        img.onerror=tryNextExtension;
         img.onclick=()=>openLightbox(img.src);
         card.appendChild(img);
         gallery.appendChild(card);
+        tryNextExtension();
     }
 }
 
