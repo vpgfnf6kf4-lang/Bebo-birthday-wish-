@@ -185,7 +185,7 @@ audio{width:min(100%,500px)}
 
 <header class="hero">
     <div class="hero-content">
-        <img class="hero-photo" src="hero/hero.JPG" alt="Our special memory"
+        <img class="hero-photo" src="hero.JPG" alt="Our special memory"
              onerror="this.style.display='none'">
         <h1>Happy Birthday Waseela! 🎂❤️</h1>
         <p>5 Years of Love</p>
@@ -267,16 +267,18 @@ passwordInput.focus();
 
 /*
   PHOTO SETUP:
-  Put photos in these folders using these names:
-  hero/hero.jpg
-  couple/01.jpg, 02.jpg, 03.jpg ... 15.jpg
-  solo/01.jpg, 02.jpg, 03.jpg ... 15.jpg
-  calls/01.jpg, 02.jpg, 03.jpg ... 15.jpg
+  Keep every photo in the same GitHub folder as this HTML file.
+  Use these filename patterns:
+  hero.JPG
+  couple_01.JPG, couple_02.JPG, couple_03.JPG ...
+  solo_01.JPG, solo_02.JPG, solo_03.JPG ...
+  call_01.JPG, call_02.JPG, call_03.JPG ...
 
-  Missing files are automatically hidden, so you can have fewer than 15.
+  JPG/JPEG/PNG/WEBP extensions are accepted.
+  Missing numbers are automatically hidden.
 */
 
-function loadGallery(id, folder, count){
+function loadGallery(id, prefix, count){
     const gallery=document.getElementById(id);
     const extensions=["jpg","JPG","jpeg","JPEG","png","PNG","webp","WEBP"];
 
@@ -294,7 +296,7 @@ function loadGallery(id, folder, count){
                 card.remove();
                 return;
             }
-            img.src=`${folder}/${n}.${extensions[extIndex++]}`;
+            img.src=`${prefix}_${n}.${extensions[extIndex++]}`;
         }
 
         img.onerror=tryNextExtension;
@@ -307,7 +309,7 @@ function loadGallery(id, folder, count){
 
 loadGallery("coupleGallery","couple",15);
 loadGallery("soloGallery","solo",15);
-loadGallery("callsGallery","calls",15);
+loadGallery("callsGallery","call",15);
 
 function openLightbox(src){
     document.getElementById("lightboxImg").src=src;
