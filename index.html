@@ -9,7 +9,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap');
 :root{--bg:#070307;--pink:#ff6f9d;--rose:#ffb3c9;--gold:#e9c58d;--text:#fff7fa;--muted:#d7bdc8}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Montserrat,sans-serif;overflow-x:hidden}
-body.locked{overflow:hidden;position:fixed;width:100%;height:100%;touch-action:none;overscroll-behavior:none}.noise{position:fixed;inset:0;z-index:5;pointer-events:none;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+body.locked{overflow:hidden;position:fixed;inset:0;width:100%;height:100%;touch-action:none;overscroll-behavior:none}.noise{position:fixed;inset:0;z-index:5;pointer-events:none;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 #stars{position:fixed;inset:0;pointer-events:none;z-index:1}.star{position:absolute;width:3px;height:3px;background:#fff;border-radius:50%;opacity:.4;animation:twinkle 3s infinite ease-in-out}@keyframes twinkle{50%{opacity:1;transform:scale(1.7)}}
 #hearts{position:fixed;inset:0;pointer-events:none;z-index:80;overflow:hidden}.sparkle{position:absolute;bottom:-20px;opacity:0;color:#ffd7e4;font-size:12px;animation:sparkleRise 7s linear forwards}@keyframes sparkleRise{0%{opacity:0;transform:translateY(0) scale(.5) rotate(0)}15%{opacity:.75}100%{opacity:0;transform:translateY(-110vh) scale(1.4) rotate(180deg)}}.float-heart{position:absolute;bottom:-40px;color:#ff7fa5;opacity:0;animation:rise 8s linear forwards}@keyframes rise{0%{opacity:0;transform:translateY(0) scale(.7) rotate(0)}12%{opacity:.65}100%{opacity:0;transform:translateY(-115vh) scale(1.3) rotate(35deg)}}
 section{min-height:100svh;padding:100px 18px 80px;display:flex;align-items:center;position:relative;z-index:2}.wrap{width:min(1120px,100%);margin:auto}.center{text-align:center}.eyebrow{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--gold)}h1,h2{font-family:"Cormorant Garamond",serif;font-weight:400;font-style:italic}h1{font-size:clamp(68px,17vw,170px);line-height:.75;margin:28px 0;color:#fff;text-shadow:0 0 45px #ff5d9333}h2{font-size:clamp(45px,8vw,82px);line-height:.9;margin:10px 0 22px;color:var(--rose)}h3{font-family:"Cormorant Garamond",serif;font-size:30px;font-weight:500;margin:12px 0;color:#fff}p{font-family:"Cormorant Garamond",serif;font-size:21px;line-height:1.55;color:var(--muted);max-width:760px;margin:12px auto}.script{font-family:"Great Vibes",cursive;color:var(--rose)}
@@ -46,23 +46,30 @@ footer{text-align:center;padding:40px;color:#8e6e7c;font-size:10px;letter-spacin
 .photo-lightbox .close{position:absolute;top:20px;right:22px;width:46px;height:46px;border-radius:50%;border:1px solid #ffffff30;background:#160b14dd;color:#fff;font-size:26px;cursor:pointer}
 .memory img{cursor:zoom-in}
 
-/* FINAL PREMIUM FIXES */
 #lockScreen{touch-action:none;overscroll-behavior:none}
-.lock-card input{position:relative;z-index:5;touch-action:auto;-webkit-user-select:text;user-select:text}
+.lock-card{z-index:3}
+.lock-card input{position:relative;z-index:10;touch-action:auto;pointer-events:auto}
+.lock-card button{position:relative;z-index:10;touch-action:manipulation}
 #transition{touch-action:none}
 .transition-content h2{font-family:"Great Vibes",cursive;font-style:normal;text-shadow:0 0 35px #ff6b9c66}
 .transition-content .welcome-sub{font-family:"Cormorant Garamond",serif;font-size:22px;color:#ffe7ef}
 .welcome-kiss{font-size:20px;letter-spacing:5px;color:#ffd3e1;margin-top:15px;animation:welcomeFloat 2.2s ease-in-out infinite}
 @keyframes welcomeFloat{50%{transform:translateY(-7px);opacity:.75}}
+.hero-photo-wrap:before{border:2px solid #e9c58dcc;box-shadow:0 0 0 5px #ff6c9818,inset 0 0 0 1px #ffffff20,0 0 55px #ff5e9240}
+.hero-photo-wrap:after{border:1px solid #ff9fba88;box-shadow:0 0 0 5px #e9c58d22,0 0 45px #ff5e9240}
 .hero-photo{border:2px solid #e9c58dcc;box-shadow:0 35px 110px #000,0 0 65px #ff5e9245,inset 0 0 0 1px #ffffff20}
-.hero-photo-wrap:before{border:2px solid #e9c58daa;box-shadow:0 0 0 5px #ff6c9818,inset 0 0 0 1px #ffffff20,0 0 55px #ff5e9240}
-.hero-photo-wrap:after{border:1px solid #ff9fba77;box-shadow:0 0 0 5px #e9c58d20,0 0 45px #ff5e9240}
-.gallery{grid-template-columns:repeat(2,1fr);align-items:start}
+.gallery{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}
 .memory:has(img.landscape){grid-column:1/-1}
-.memory:has(img.landscape) img{aspect-ratio:16/8;object-fit:cover}
+.memory:has(img.landscape) img{aspect-ratio:16/9;object-fit:cover}
 .memory:has(img.portrait) img{aspect-ratio:4/5;object-fit:cover}
 .caption{font-weight:800;font-style:italic;font-size:20px;padding:14px 10px 3px}
-@media(max-width:760px){.gallery{grid-template-columns:repeat(2,1fr);gap:12px}.memory:has(img.landscape){grid-column:1/-1}.memory:has(img.landscape) img{aspect-ratio:16/9}.caption{font-size:17px}}
+.memory-inner{padding:9px 9px 20px}
+@media(max-width:760px){
+ .gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+ .memory:has(img.landscape){grid-column:1/-1}
+ .memory:has(img.landscape) img{aspect-ratio:16/9}
+ .caption{font-size:17px}
+}
 
 </style>
 </head>
@@ -97,10 +104,10 @@ footer{text-align:center;padding:40px;color:#8e6e7c;font-size:10px;letter-spacin
 <section id="home" class="hero">
 <div class="wrap center hero-inner">
   <div class="eyebrow">9 October • A day made for you</div>
-  <div class="hero-photo-wrap"><div class="photo-ring"></div><img class="hero-photo" src="hero.JPG" alt="Waseela"></div>
+  <div class="hero-photo-wrap"><div class="photo-ring"></div><img class="hero-photo" src="hero.JPG" alt="Waseela" onerror="this.style.display='none'"></div>
   <div class="badge">FOR THE MOST SPECIAL PERSON</div>
   <h1>Happy Birthday<br><span class="script">Waseela</span> ♡</h1>
-  <p>Five years of memories, countless little moments, and one beautiful story that is still being written.</p>
+  <p>Five years of memories, secret little moments, endless conversations, quiet smiles, and a beautiful story I would choose again and again.</p>
   <a class="btn" href="#story">Begin Our Story ♡</a>
   <div class="scroll">SCROLL TO ENTER OUR LITTLE WORLD ↓</div>
 </div>
@@ -120,14 +127,14 @@ footer{text-align:center;padding:40px;color:#8e6e7c;font-size:10px;letter-spacin
 
 <section id="memories">
 <div class="wrap">
-  <div class="section-head reveal"><div class="eyebrow">The moments I would replay forever</div><h2>Our Memories</h2><p>Every picture holds a little piece of us.</p></div>
+  <div class="section-head reveal"><div class="eyebrow">The moments I would replay forever</div><h2>Our Memories</h2><p>Every picture holds a little piece of us — a moment I could replay a hundred times and still feel the same warmth.</p></div>
   <div class="gallery" id="coupleGallery"></div>
 </div>
 </section>
 
 <section id="solo" class="section-dark">
 <div class="wrap">
-  <div class="section-head reveal"><div class="eyebrow">And then there is you…</div><h2>Bebo's Beautiful Moments</h2><p>Because somehow you make every frame look like my favourite frame.</p></div>
+  <div class="section-head reveal"><div class="eyebrow">And then there is you…</div><h2>Bebo's Beautiful Moments</h2><p>Because somehow you turn an ordinary second into a memory I want to keep forever.</p></div>
   <div class="gallery" id="soloGallery"></div>
 </div>
 </section>
@@ -168,7 +175,7 @@ footer{text-align:center;padding:40px;color:#8e6e7c;font-size:10px;letter-spacin
   <div class="eyebrow">A little letter for you</div>
   <div class="letter-card">
     <h2>To My Bebo ♡</h2>
-    <p>Happy Birthday, Waseela — from Furqan, the boy who found a thousand beautiful memories in the little moments we shared.</p>
+    <p>Happy Birthday, Waseela — from Furqan, the boy who found something unforgettable in the smallest moments with you. Somewhere along the way, ordinary days became our memories, simple smiles became my favourite moments, and you became a part of my heart that I never want to lose.</p>
     <p>I hope this year brings you the kind of happiness you deserve — the quiet kind, the loud kind, and every beautiful kind in between.</p>
     <p>And if I could choose one thing to keep forever, it would be this feeling: knowing that somewhere in this huge world, Furqan and Waseela found a little world of their own.</p>
     <div class="signature">Always your Bubba</div>
@@ -192,19 +199,33 @@ call:["Even a call with you became a memory.","Miles apart, but never really far
 };
 const emojis=["💗","🦋","🌸","💞","✨","🎀","🌙","🥹","❤️","🫶","🌷","💫","💕","🩷","😘"];
 function addGallery(id,prefix,count,type){
- const g=document.getElementById(id),exts=["JPG","jpg","JPEG","jpeg","PNG","png","WEBP","webp"];
+ const g=document.getElementById(id);
+ const exts=["JPG","jpg","JPEG","jpeg","PNG","png","WEBP","webp"];
  for(let i=1;i<=count;i++){
-  const n=String(i).padStart(2,"0"),card=document.createElement("article");
-  card.className="memory reveal";card.style.setProperty("--r",((i%3)-1)*1.4+"deg");
-  const inner=document.createElement("div");inner.className="memory-inner";
-  const img=document.createElement("img");img.alt="Memory";img.loading="lazy";
-  const emoji=document.createElement("div");emoji.className="corner";emoji.textContent=emojis[(i-1)%emojis.length];
-  const cap=document.createElement("div");cap.className="caption";cap.textContent=captions[type][(i-1)%captions[type].length];
+  const n=String(i).padStart(2,"0");
+  const card=document.createElement("article");
+  card.className="memory reveal";
+  card.style.setProperty("--r",((i%3)-1)*1.4+"deg");
+  const inner=document.createElement("div"); inner.className="memory-inner";
+  const img=document.createElement("img"); img.alt="Memory"; img.loading="lazy";
+  const emoji=document.createElement("div"); emoji.className="corner";
+  emoji.textContent=emojis[(i-1)%emojis.length];
+  const cap=document.createElement("div"); cap.className="caption";
+  cap.textContent=captions[type][(i-1)%captions[type].length];
   let k=0,found=false;
-  function next(){if(k>=exts.length){if(!found)card.remove();return}img.src=prefix+"_"+n+"."+exts[k++];}
-  img.onload=()=>{found=true;img.classList.add(img.naturalWidth>=img.naturalHeight*1.15?"landscape":"portrait");};
-  img.onerror=next;img.onclick=()=>openLightbox(img.src,img.alt);
-  inner.append(img,emoji,cap);card.append(inner);g.append(card);next();
+  function tryNext(){
+   if(k>=exts.length){if(!found)card.remove();return;}
+   img.src=prefix+"_"+n+"."+exts[k++];
+  }
+  img.onload=()=>{
+   found=true;
+   if(img.naturalWidth>=img.naturalHeight*1.15)img.classList.add("landscape");
+   else img.classList.add("portrait");
+   card.classList.add("visible");
+  };
+  img.onerror=tryNext;
+  img.addEventListener("click",()=>openLightbox(img.src,img.alt));
+  inner.append(img,emoji,cap); card.append(inner); g.append(card); tryNext();
  }
 }
 addGallery("coupleGallery","couple",15,"couple");
@@ -226,26 +247,60 @@ setInterval(sparkle,900);
 
 const music=document.getElementById("music"),record=document.getElementById("record"),
 lock=document.getElementById("lockScreen"),trans=document.getElementById("transition"),
-input=document.getElementById("passwordInput"),btn=document.getElementById("unlockBtn"),err=document.getElementById("lockError");
+input=document.getElementById("passwordInput"),btn=document.getElementById("unlockBtn"),
+err=document.getElementById("lockError");
+let unlocking=false;
 
 function unlock(){
+ if(unlocking)return;
  if(input.value.trim().toUpperCase()!==PASSWORD){
   err.textContent="That isn't the secret. Try again, Bebo ♡";
-  lock.animate([{transform:"translateX(-7px)"},{transform:"translateX(7px)"},{transform:"translateX(0)"}],{duration:260});
-  input.value="";requestAnimationFrame(()=>input.focus({preventScroll:true}));return;
+  lock.animate([{transform:"translateX(0)"},{transform:"translateX(-8px)"},{transform:"translateX(8px)"},{transform:"translateX(0)"}],{duration:280});
+  input.select();
+  return;
  }
- err.textContent="";input.blur();trans.style.display="grid";trans.style.opacity="0";
+ unlocking=true;
+ err.textContent="";
+ btn.disabled=true;
+ input.blur();
+
+ // Remain fully locked until the password is accepted and welcome animation finishes.
+ document.body.classList.add("locked");
+ trans.style.display="grid";
+ trans.style.opacity="0";
+
+ // Called directly from the unlock button gesture for mobile autoplay.
+ music.play().then(()=>record.classList.add("playing")).catch(()=>{});
+
  requestAnimationFrame(()=>{
   trans.style.opacity="1";
-  for(let i=0;i<30;i++){const b=document.createElement("i");b.className="burst";b.style.setProperty("--a",Math.random()*360+"deg");b.style.setProperty("--d",(80+Math.random()*300)+"px");trans.append(b)}
-  music.play().then(()=>record.classList.add("playing")).catch(()=>{});
-  setTimeout(()=>{lock.style.opacity="0";document.body.classList.remove("locked");document.body.classList.add("unlocked");setTimeout(()=>lock.remove(),600)},650);
-  setTimeout(()=>{trans.style.opacity="0";setTimeout(()=>trans.remove(),500)},2200);
+  for(let i=0;i<32;i++){
+   const b=document.createElement("i");
+   b.className="burst";
+   b.style.setProperty("--a",Math.random()*360+"deg");
+   b.style.setProperty("--d",(80+Math.random()*310)+"px");
+   trans.append(b);
+  }
+  setTimeout(()=>{
+   lock.style.opacity="0";
+   document.body.classList.remove("locked");
+   document.body.classList.add("unlocked");
+   setTimeout(()=>lock.remove(),650);
+  },1500);
+  setTimeout(()=>{
+   trans.style.opacity="0";
+   setTimeout(()=>trans.remove(),500);
+  },2300);
  });
 }
+
 btn.addEventListener("click",unlock);
-input.addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();unlock()}});
-window.addEventListener("load",()=>setTimeout(()=>input.focus({preventScroll:true}),100));
+input.addEventListener("keydown",e=>{
+ if(e.key==="Enter"){e.preventDefault();unlock();}
+});
+window.addEventListener("load",()=>{
+ setTimeout(()=>input.focus({preventScroll:true}),120);
+});
 
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add("visible")}),{threshold:.12});document.querySelectorAll(".reveal").forEach(x=>io.observe(x));
 
